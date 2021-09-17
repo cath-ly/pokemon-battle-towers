@@ -1,0 +1,117 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           Address_ 
+
+Specification Type:
+  Unique:  _
+  Generic: YES_ 
+  Replica: _ 
+Parent Table:         Consumers_ 
+Label:                _ 
+Source Specification: Address_ 
+Shared By:            _ 
+Aliases:              _ 
+Description:          Address of the consumer_ 
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            VARCHAR_ 
+Length:               50_
+Decimal Places:       None_ 
+Input Mask:           Applicable_
+Display Format:       #, street name, street type_ 
+Character Support:
+  Letters (A-Z):      YES_ 
+  Numbers (0-9):      YES_ 
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        YES_ 
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: YES_ 
+               Unique:     _ 
+
+Null Support:  Nulls OK:   YES_ 
+               No nulls:   _ 
+
+Values Entered By: User:   YES_ 
+                   System: _ 
+
+Required Value:    No:     YES_ 
+                   Yes:    _ 
+
+Default Value:     _ 
+
+Range of Values:   _ 
+
+Edit Rule:
+  Enter now, edits allowed:       _ 
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     YES_ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ 
+                ALL  YES_ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _ 
+                ALL  YES_ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES: Address can vary in range, on average it is normal for 30-35 characters but I decided 50 because there might be unique addresses that break past 30-35 since usual caps for characters is 43 or 46.
+
