@@ -1,0 +1,117 @@
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           ConsumerID_ 
+
+Specification Type:
+  Unique:  _ 
+  Generic: _ 
+  Replica: YES_ 
+Parent Table:         Ratings_ 
+Label:                ID_ 
+Source Specification: Consumers_ 
+Shared By:            Consumers_ 
+Aliases:              _ 
+Description:          Provides a Unique ID for each consumer of the movie_ 
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            INT_ 
+Length:               _ 
+Decimal Places:       None_ 
+Input Mask:           _ 
+Display Format:       _ 
+Character Support:
+  Letters (A-Z):      _ 
+  Numbers (0-9):      YES_ 
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        _ 
+               Primary:    _ 
+               Foreign:    YES_ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  YES_ 
+
+Uniqueness:    Non-unique: YES_ 
+               Unique:     _ 
+
+Null Support:  Nulls OK:   _ 
+               No nulls:   YES_ 
+
+Values Entered By: User:   YES_ 
+                   System: _ 
+
+Required Value:    No:     _ 
+                   Yes:    YES_ 
+
+Default Value:     _ 
+
+Range of Values:   _ 
+
+Edit Rule:
+  Enter now, edits allowed:       _ 
+  Enter now, edits not allowed:   YES_ 
+  Enter later, edits allowed:     _ 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ 
+                ALL  YES_ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    YES_ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _ 
+                ALL  YES_ 
+                =    _ 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:
+
