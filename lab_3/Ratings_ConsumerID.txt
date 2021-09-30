@@ -1,6 +1,6 @@
 FIELD SPECIFICATIONS
 
-GENERAL ELEMENTS
+GENERAL ELEMENTS      WB: Looks good!
 
 Field Name:           ConsumerID_ 
 

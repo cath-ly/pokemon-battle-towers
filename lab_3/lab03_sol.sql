@@ -124,3 +124,5 @@ SELECT * FROM movie_genre;
 allows for the genre to be in their individual table and then allow for a linking table to help show which movie has the genre.
 Making the field that was once multi-valued to now single and clean. :)
 */
+
+-- WB: Nice script Chantakrak!

@@ -6,7 +6,7 @@ Field Name:           ConsumerID_
 
 Specification Type:
   Unique:  _ 
-  Generic: YES_ 
+  Generic: YES_       WB: By convention PKs are listed at unique.
   Replica: _ 
 Parent Table:         Consumers_ 
 Label:                ID_ 
