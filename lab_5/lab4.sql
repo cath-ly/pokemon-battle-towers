@@ -8,7 +8,6 @@ USE carpet_store;
 
 -- creates the table rugs and the fields that go into it
 -- might have origin_country, rug_material, rug_style be a validation table so have it as foreign key later on
--- need rug_length & rug_width (learn more about characteristics)
 CREATE TABLE country(
     PRIMARY KEY (origin_country),
     origin_country      VARCHAR(15)
@@ -40,6 +39,8 @@ VALUES ('Ushak'),
        ('Agra');
 SELECT * FROM style;
 
+-- lots of information joining together; in other words look hehe
+-- validation tables are referenced here, 3 to make fixed values!
 CREATE TABLE rugs (
     PRIMARY KEY (inventory_id),
     inventory_id        INT AUTO_INCREMENT,
@@ -98,6 +99,7 @@ VALUES('Akira', 'Ingram', '68 Country Drive', 'Roseville', 'MI', '48066', '(926)
       ('Gloria', 'Gomez', '78 Corona Rd.', 'Fullerton', 'CA', '92831', '(867)926-2585');
 SELECT * FROM customers;
 
+-- verify the return_date is past date of sale!!!
 CREATE TABLE sales(
     PRIMARY KEY (customer_id, inventory_id),
     inventory_id        INT,
@@ -115,20 +117,21 @@ VALUES ('1', '6', '990', '2017-12-14', NULL),
        ('2', '2', '40000', '2017-12-14', '2017-12-26');
 SELECT * FROM sales;
 
--- as well as trial start has to be b4 trial end, and return date cannot be > current date
--- ask or reference more from mariadb page
+-- as well as trial start has to be b4 trial end and return as well, and return date cannot be > current date
 CREATE TABLE trials(
     PRIMARY KEY (customer_id, inventory_id),
     inventory_id        INT,
     customer_id         INT,
     trial_start         DATE,
     trial_end           DATE DEFAULT DATE_ADD(trial_start, INTERVAL 14 DAY) CHECK (trial_end > trial_start), 
-    return_date         DATE DEFAULT NULL CHECK (return_date > trial_start),
+    return_date         DATE DEFAULT NULL CHECK (return_date >= trial_start),
     FOREIGN KEY (inventory_id) REFERENCES rugs(inventory_id),
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
-/*
+
+--inserted values for trials to verify if it works!
 INSERT INTO trials(inventory_id, customer_id, trial_start, return_date)
-VALUES (),
-       (),
-       ();*/
+VALUES ('1', '2', '2017-12-14', NULL),
+       ('2', '1', '2016-12-18', '2016-12-30'),
+       ('4', '6', '2010-08-27', '2010-08-27');
+SELECT * FROM trials;
