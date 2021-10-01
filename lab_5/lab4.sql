@@ -53,9 +53,15 @@ CREATE TABLE rugs (
     date_acquired       DATE,
     year_made           INT(4),
     markup_price        FLOAT(4),
-    FOREIGN KEY (origin_country) REFERENCES country(origin_country),
-    FOREIGN KEY (rug_material) REFERENCES material(rug_material),
+    FOREIGN KEY (origin_country) REFERENCES country(origin_country)
+        ON DELETE RESTRICT
+        ON UPDATE RESTRICT,
+    FOREIGN KEY (rug_material) REFERENCES material(rug_material)
+        ON DELETE RESTRICT
+        ON UPDATE RESTRICT,
     FOREIGN KEY (rug_style) REFERENCES style(rug_style)
+        ON DELETE RESTRICT
+        ON UPDATE RESTRICT
 );
 INSERT INTO rugs (origin_country, rug_material, rug_style, rug_length, rug_width, original_cost, date_acquired, year_made, markup_price)
 VALUES ('Turkey', 'Wool', 'Ushak', '5', '7', '625', '2017-04-06', '1925', '1'),
@@ -89,6 +95,8 @@ CREATE TABLE customers(
     zip                 CHAR(5),
     cust_phone          VARCHAR(13),
     FOREIGN KEY (cust_state) REFERENCES states(cust_state)
+        ON DELETE RESTRICT
+        ON UPDATE RESTRICT
 );
 INSERT INTO customers(cust_first, cust_last, cust_address, city, cust_state, zip, cust_phone)
 VALUES('Akira', 'Ingram', '68 Country Drive', 'Roseville', 'MI', '48066', '(926)252-6716'),
@@ -107,8 +115,12 @@ CREATE TABLE sales(
     sales_price         INT(9),
     date_of_sale        DATE,
     return_date         DATE DEFAULT NULL CHECK (return_date >= date_of_sale),
-    FOREIGN KEY (inventory_id) REFERENCES rugs(inventory_id),
+    FOREIGN KEY (inventory_id) REFERENCES rugs(inventory_id)
+        ON DELETE RESTRICT
+        ON UPDATE RESTRICT,
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+        ON DELETE RESTRICT
+        ON UPDATE RESTRICT
 );
 --verify the values to see if default can be NULL for return date
 INSERT INTO sales(inventory_id, customer_id, sales_price, date_of_sale, return_date)
@@ -125,8 +137,12 @@ CREATE TABLE trials(
     trial_start         DATE,
     trial_end           DATE DEFAULT DATE_ADD(trial_start, INTERVAL 14 DAY) CHECK (trial_end > trial_start), 
     return_date         DATE DEFAULT NULL CHECK (return_date >= trial_start),
-    FOREIGN KEY (inventory_id) REFERENCES rugs(inventory_id),
+    FOREIGN KEY (inventory_id) REFERENCES rugs(inventory_id)
+        ON DELETE RESTRICT
+        ON UPDATE RESTRICT,
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+        ON DELETE RESTRICT
+        ON UPDATE RESTRICT
 );
 
 --inserted values for trials to verify if it works!
