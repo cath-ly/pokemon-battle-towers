@@ -27,23 +27,24 @@
     $tablelist = "SHOW tables;";
     $result = $conn->query($tablelist);
     $tb = "";
-	while ($tbname = $result->fetch_array()){
-        //need to categorize it/it is a 2D array
+	while ($tbname = $result->fetch_array()){    //need to categorize it/it is a 2D array
         //echo "testing fetch array" . "<br>";
         //it grabs one array here so need to check the list once
-        for ($x = 0; $x < 1; $x++){
+        for ($x = 0; $x < 1; $x++){ 
             //echo "testing x= $x" . "<br>";
-            $len = strlen($tbname[$x]);
-            //echo "the length is $len" . "<br>";
+            $len = strlen($tbname[$x]);?>
+            <?php echo $tbname[$x]; ?> 
+            <br>
+            <?php //echo "the length is $len" . "<br>";
 
-            //checking how many arrays in the y pos
+            /*//checking how many arrays in the y pos
             for($y = 0; $y<$len; $y++){
                 $tb = $tb . $tbname[$x][$y];
                 //echo "testing if y= $y exists" . "<br>";
-            }
+            } 
             //echo the table name and reset the $tb value
             echo $tb . "<br>";
-            $tb = "";
+            $tb = ""; */
         }
 	}
 
