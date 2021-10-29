@@ -45,12 +45,14 @@
     if(!$result){
         echo "query failed";
     }
+    //gather info from fields
     $rows = $result->fetch_all();
     $tot_row = $result->num_rows;
     $del_stmt = $conn->prepare("DELETE FROM instruments WHERE instrument_id = ?;"); 
     $del_stmt->bind_param('i', $id);
     for($i=0; $i<$tot_row; $i++){
         $id = $rows[$i][0];
+        //checks to see whether the checkbox is checked if so we will delete
         if (isset($_POST["checkbox$id"]) && !$del_stmt->execute()){
             echo $conn->error;
         }
@@ -65,16 +67,18 @@
         $tot_col = $result->field_count;
         //2D array of the instruments!
         ?>
-
+        <!-- echoes the rows and col in the database -->
         <?php echo $tot_row; ?> <br>
         <?php echo $tot_col; ?> <br>
         <p>
+        <!-- Creates a form to delete instruments -->
         <form action="deleteFromTable.php" method=POST>
         <table>
             <thead>
             <tr>
                 <th> Delete batch? </th>
                 <?php while ($field = $result->fetch_field()){ ?>
+                    <!-- Prints all the names of field as it iterates through -->
                     <td> <?php echo $field->name; ?> </td>
                 <?php } ?>
             </tr>
@@ -82,6 +86,7 @@
             <?php for($x = 0; $x < $tot_row; $x++) { 
                     $id = $rows[$x][0];
                     //echo $id . '<br>';
+                // next establishes the checkbox button to toggle what instruments to delete
                 ?>
                 <tr>
                     <td> <input type="checkbox" 
@@ -105,7 +110,8 @@
     //testing fnc to see if it works
     result_to_deletable_table($result, $conn, $del_stmt, $rows);
     ?>
+
+    <!-- adding another button to insert instruments -->
     <form action="deleteFromTable.php" method=POST>
         <input type="submit" name= "insert_ins" value="Insert Instruments" method=POST/>
-
     </form>
