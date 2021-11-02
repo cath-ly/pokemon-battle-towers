@@ -11,7 +11,13 @@
     //using db
     $database = 'instrument_rentals';
 
-    $conn = new mysqli($dbhost, $dbuser, $dbpass, $database);
+    $config = parse_ini_file('/home/Takrak/mysql.ini');
+    $dbname = 'instrument_rentals';
+    $conn = new mysqli(
+                $config['mysqli.default_host'],
+                $config['mysqli.default_user'],
+                $config['mysqli.default_pw'],
+                $dbname);
 
     if ($conn->connect_errno){
 		echo "Error: Failed to make a MySQL connection,
@@ -22,6 +28,7 @@
 		echo "Connected Successfully!" . "<br>";
 		echo "YAY!" . "<br>";
 	}
+    // inserting values when button is clicked
     $insert = "INSERT INTO instruments (instrument_type) 
                     VALUES ('Guitar'),
                             ('Trumpet'),
@@ -35,9 +42,6 @@
     if(array_key_exists('insert_ins', $_POST)){
         $result = $conn->query($insert);
     }
-    //$insert = $conn->query($query);
-    
-    //$del_stmt->execute();
 
     //pops the SQL query
     $query = "SELECT * FROM instruments;";
