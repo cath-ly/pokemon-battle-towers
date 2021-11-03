@@ -1,3 +1,4 @@
+<link ref = "stylesheet" href = "an-attempt/html/basic.css">
 <?php
 	//will show error if not cooperating
 	ini_set('display_errors', 1);
@@ -43,6 +44,10 @@
         $result = $conn->query($insert);
     }
 
+    if(array_key_exists('toggle_dark_mode', $_POST)){ ?>
+        <link ref = "stylesheet" href = "an-attempt/html/darkmode.css">
+    <?php }
+
     //pops the SQL query
     $query = "SELECT * FROM instruments;";
     $result = $conn->query($query);
@@ -62,8 +67,9 @@
         }
     }
 
-    $result = $conn -> query($query);
-
+    $result = $conn -> query($query); ?>
+    
+    <?php
     function result_to_deletable_table($result){ 
         //$fields = $result->fetch_fields();
         $rows = $result->fetch_all();
@@ -114,6 +120,10 @@
     //testing fnc to see if it works
     result_to_deletable_table($result, $conn, $del_stmt, $rows);
     ?>
+    <!-- adding another button to toggle dark mode -->
+    <form action="deleteFromTable.php" method=POST>
+        <input type="submit" name="toggle_dark_mode" value="Toggle Light/Dark Mode"/>
+    </form>
 
     <!-- adding another button to insert instruments -->
     <form action="deleteFromTable.php" method=POST>
