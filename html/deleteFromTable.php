@@ -8,18 +8,22 @@
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
 
-        //was informed that we need header
+        //was informed that we need header to not have confirm resend tings
         //header("Location: {$_SERVER['REQUEST_URI']}", true, 303);
 
         session_start();            // begin or lookup session for client
-        if(isset($_SESSION['username'])){?>
+        if(isset($_SESSION['username'])){
+            //user is logged in
+            ?>
             <p>Welcome <?php echo htmlspecialchars($_SESSION['username']); ?></p>
                 <!-- Using default action (this page). -->
             <form method=POST> 
                 <input type=submit name=logout value="Logout"/>
             </form>
         <?php }
-        else{ ?>
+        else{ 
+        //when there is no session or person logged in
+            ?>
             <p>Remember my session:
                 <!-- Using default action (this page). -->
                 <form method=POST>
@@ -54,15 +58,15 @@
         $dbpass = 'takrak';
         //using db
         $database = 'instrument_rentals';
-
-        $config = parse_ini_file('/home/Takrak/mysql.ini');
+        $conn = new mysqli($dbhost, $dbuser, $dbpass, $database);
+        /*$config = parse_ini_file('/home/Takrak/mysql.ini');
         $dbname = 'instrument_rentals';
         $conn = new mysqli(
                     $config['mysqli.default_host'],
                     $config['mysqli.default_user'],
                     $config['mysqli.default_pw'],
                     $dbname);
-
+        */
         if ($conn->connect_errno){
             echo "Error: Failed to make a MySQL connection,
                 here is why: ". "<br>";
