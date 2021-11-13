@@ -6,4 +6,7 @@ VALUES ('Normal'),
        ('Electric'),
        ('Ice'),
        ('Fighting'),
-       ('...');
+       ('Poison'),
+       ('Ground'),
+       ('Flying'),
+       ('Psychic');

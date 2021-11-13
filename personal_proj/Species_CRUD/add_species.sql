@@ -1,4 +1,7 @@
 INSERT INTO species(species_name)
 VALUES ('Charmander'),
        ('Eevee'),
-       ('Piplup');
+       ('Piplup'),
+       ('Alakazam'),
+       ('Chikorita'),
+       ('Lapras');
