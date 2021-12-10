@@ -1,3 +1,6 @@
+-- WB: Excellent work Chantakrak. The only thing I can see to improve is including the 
+-- WB: units in the fields describing dimension; append "_ft" or "_in" or "_cm", or "_km".
+
 -- deletes any existing database named carpet_store
 DROP DATABASE IF EXISTS carpet_store;
  
