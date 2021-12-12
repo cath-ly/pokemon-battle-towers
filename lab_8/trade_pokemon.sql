@@ -1,3 +1,6 @@
+-- WB: Good work Chantakrak. This just needs some test cases to show that the 
+-- WB: illegal actions are prevented by the database.
+
 --CREATE PROCEDURE
 DROP FUNCTION IF EXISTS get_trainer;
 CREATE FUNCTION get_trainer(id INT)
